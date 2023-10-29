@@ -1,0 +1,27 @@
+<Plotter>
+    BoxLayout:
+        size_hint: 1,1
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: 1,0.3
+            orientation: 'horizontal'
+
+            Image:
+                source: 'air-pollution.png'
+                size_hint: 1,1
+                size: 50,50
+
+
+        BoxLayout:
+            size_hint: 1, 0.3
+            orientation: 'horizontal'
+
+            Button:
+                text: 'Click'
+                on_release: root.air_quality('Aruba')
+
+
+
+        BoxLayout:
+            size_hint: 1, 0.4
