@@ -1,0 +1,58 @@
+
+<MyRootWidget>
+    canvas.before:
+        Color:
+            rgb: [1 ,1 ,0.4]
+
+
+    BoxLayout:
+        size_hint: 1, 1
+        orientation: 'vertical'
+        padding: 20
+
+        Image:
+            size_hint: 1, 0.4
+            source: 'air_pollution_logo.png'
+            size: 20, 20
+
+        TextInput:
+            id: city_input
+            size_hint: 1, 0.3
+            hint_text: 'Enter City Name'
+
+        Button:
+            size_hint: 1, 0.3
+            text: 'get air quality data'
+            on_release:
+                app.fetch_air_quality(city_input.text);
+
+        Label:
+            id: message_label
+            text: ''
+            size_hint: 1, 0.3
+
+        Graph:
+            id: graph
+            size_hint: 1, 1
+            padding: 5
+            x_grid: True
+            y_grid: True
+            x_ticks_major: 24
+            y_ticks_major: 80
+            # tick_color: 0, 1, 1, 1
+            border_color: 1, 1, 1, 1
+            xlabel: 'Time'
+            ylabel: 'AQI (PM10)'
+            xmin: 0
+            xmax: 24
+            x_grid_label: True  # Display x-axis labels
+            y_grid_label: True  # Display y-axis labels
+            x_ticks_minor: 1  # Controls the minor ticks for x-axis
+            y_ticks_minor: 1  # Controls the minor ticks for y-axis
+
+        BoxLayout:
+            size_hint: 1, 0.2
+            Button:
+                text: "Exit"
+                size_hint: 0.2, 0.2
+                on_release: app.stop()
